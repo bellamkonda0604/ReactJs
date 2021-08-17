@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Drumkit Band </title>
+    </head>
+
+
+    <script>
+        function sound1(){
+            var song1 = new Audio("mixkit-deep-horror-drum-556.wav")
+            song1.play()
+        }
+        
+        function sound2(){
+            var song2 = new Audio("mixkit-drum-hit-with-eco-544.wav")
+            song2.play()
+        }
+
+        function sound3(){
+            var song3 = new Audio("mixkit-horror-tunnel-drum-554.wav")
+            song3.play()
+        }
+
+        function sound4(){
+            var song4 = new Audio("mixkit-ominous-drums-227.wav")
+            song4.play()
+        }
+
+        function sound5(){
+            var song5 = new Audio("mixkit-joke-drums-578.wav")
+            song5.play()
+        }
+
+        function sound6(){
+            var song6 = new Audio("mixkit-tribal-dry-drum-558.wav")
+            song6.play()
+        }
+    </script>
+
+
+    <style>
+        h2{
+            text-align: center; font-family:'Courier New', Courier, monospace;
+            font-size: 23px; color: white;
+        }
+    </style>
+
+
+    <body style="background-image: linear-gradient(rgb(111, 111, 153),rgb(79, 226, 42),rgb(252, 0, 105) );">
+
+
+        <map name="work">
+            <img src="70902_1.jpg" width="850px" height="645px" usemap="#work" style= " margin-left: 25%;  border-radius: 5%;">
+
+            <area  shape="circle" coords="155,300,100"  onclick="sound1()">
+        
+            <area shape="circle" coords="350,400,180"  onclick="sound2()">
+            
+            <area shape="circle" coords="450,280,50"  onclick="sound3()">
+            
+            <area shape="circle" coords="280,280,60"  onclick="sound4()">
+            <area shape="circle" coords="600,160,50"  onclick="sound5()">
+            <area shape="circle" coords="550,210,50"  onclick="sound6()">
+        </map>
+
+        <h2> Click on drums to play music! </h2><br>
+    
+    </body>
+
+        
+</html>
