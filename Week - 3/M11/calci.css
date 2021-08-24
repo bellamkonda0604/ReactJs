@@ -1,0 +1,22 @@
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: burlywood;
+    background-size: cover;
+    align-items: center;
+
+}
+
+.side-nav ul a {
+    background-color: rgb(129, 149, 236);
+    border-radius: 100px;
+    color: whitesmoke;
+    width: 180px;
+    height: fit-content;
+    display: inline-block;
+    text-align: center;
+    padding: 12px;
+    margin-top: 10px;
+    text-decoration: none;
+    align-self: center;
+}
