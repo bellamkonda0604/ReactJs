@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>ToDoList</title>
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <style>
+        #bodystyle {
+            background-image: url("photo-1579546929662-711aa81148cf.jpg");
+        }
+
+        #tablesetting {
+
+            margin-left: 20%;
+            width: 58%;
+            background-color: black
+        }
+
+        #headstyle {
+            background-color: rgb(90, 131, 207);
+            color: white;
+            font-family: Garamond, serif;
+            font-size: 50px;
+            text-align: center;
+        }
+
+        #button {
+            /* background-color: #4CAF50; */
+            /* border: 1px solid black; */
+            color: #36ddb3;
+            padding: 7px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 27px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+        input[type=text] {
+            width: 50%;
+            padding: 7px 40px;
+            margin: 15px 0;
+            box-sizing: border-box;
+            border: 5px solid rgb(219, 223, 28);
+            border-radius: 10px;
+            text-align: center;
+            font-size: 26px;
+            font-family: Garamond, serif;
+
+        }
+
+        #todostyle {
+            color: whitesmoke;
+            font-size: 26px;
+            font-family: Garamond, serif;
+        }
+    </style>
+</head>
+
+<body id="bodystyle">
+    <div id="root"></div>
+    <div id="app">
+        <script type="text/babel">
+            class Todo extends React.Component {
+
+                constructor(props) {
+                    super(props);
+                    this.state = {
+                        tasks: [],
+                        input: "",
+                        index: -1,
+                        arr: []
+                    };
+                }
+                // <h2 id="headstyle"> Number of tasks: {this.state.tasks.length}</h2>
+                render() {
+                    return (
+                        <div id="tablestyle">
+                            <table class="table" id="tablesetting">
+
+                                <thead id="headstyle">
+                                    <td>ToDoList</td>
+                                    <td>{this.state.tasks.length} Tasks</td>
+                                </thead>
+
+                                <tbody>
+                                    {this.state.tasks.map((task, index) =>
+                                        <tr key={index}>
+                                            <td id="todostyle">{task}</td>
+                                            <td >
+                                                <div id="button">
+                                                    <button type="button" class="btn btn-success" value={index} onClick={this.deleteval}>Delete</button>
+                                                </div>
+                                                <div id="button">
+                                                    <button type="button" class="btn btn-success" value={index} onClick={() => this.updateval(index)}>Update</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    )}
+                                    <div id="root">
+                                        <br />
+                                        <input type="text" onChange={this.handleChange} value={this.state.input} />
+                                        <div id="button">
+                                            <button type="button" class="btn btn-success" onClick={this.addtask}>Add Task </button>
+                                        </div>
+                                        <div id="button">
+                                            <button type="button" class="btn btn-success" onClick={this.saveFn}>Save item</button>
+                                        </div>
+                                    </div>
+                                </tbody>
+
+                            </table>
+
+                            <table class="table" id="tablesetting">
+
+                                <thead id="headstyle">
+                                    <td>Recycle Bin</td>
+                                    <td>{this.state.arr.length} Tasks</td>
+                                </thead>
+
+                                <tbody>
+                                    {this.state.arr.map((rtask, index) =>
+                                        <tr key={index}>
+                                            <td id="todostyle">{rtask}</td>
+                                            <td >
+                                                <div id="button">
+                                                    <button type="button" class="btn btn-success" value={index} onClick={this.Recycleval}>Delete</button>
+                                                </div>
+
+                                                <div id="button">
+                                                    <button type="button" class="btn btn-success" value={index} onClick={this.Restoreval}>Restore</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    )}
+
+                                </tbody>
+
+                            </table>
+                        </div>
+
+                    );
+                }
+
+                saveFn = (ele) => {
+                    var newlist = [...this.state.tasks]
+                    newlist[this.state.index] = [this.state.input];
+                    this.setState({ tasks: newlist })
+                    this.setState({ input: '' })
+                }
+
+                updateval = (i) => {
+                    var cpy = [...this.state.tasks]
+                    this.setState({ index: i })
+                    this.setState({ input: cpy[i] })
+
+                }
+
+                Recycleval = (event) => {
+                    var index = event.target.value
+                    var delvalue = this.state.arr.splice(index, 1);
+                    this.setState({ arr: this.state.arr });
+                }
+
+                deleteval = (ele) => {
+                    alert("Press OK to Delete")
+                    this.state.arr = [...this.state.arr, this.state.tasks.splice(ele.target.value, 1)];
+                    this.setState({ tasks: this.state.tasks });
+                    this.setState({ arr: this.state.arr });
+                }
+
+                Restoreval = (ele) => {
+                    var index = event.target.value;
+                    var delvalue = this.state.arr.splice(index, 1);
+                    var del = [...this.state.tasks, delvalue]
+                    this.setState({ tasks: del });
+                    // this.setState({arr:this.state.arr});
+                }
+
+                handleChange = (event) => {
+                    var input = event.target.value;
+                    this.setState({
+                        input: input
+                    });
+                }
+
+                addtask = () => {
+                    this.setState(state => ({
+                        tasks: [...state.tasks, state.input]
+                    })
+                    )
+                    this.setState({ input: "" })
+                }
+
+                componentWillUnmount() {
+
+                }
+            }
+
+            ReactDOM.render(<Todo />, document.querySelector("#root"))
+        </script>
+    </div>
+</body>
+
+</html>
