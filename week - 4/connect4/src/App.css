@@ -1,0 +1,126 @@
+.App {
+  text-align: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  
+}
+
+.block{
+  background-image: url("https://i.pinimg.com/originals/59/e7/58/59e758cd94b6a989aa2cc7b4eeb68098.jpg");
+  /* display: flex; */
+  flex-direction: column;
+  /* align-items: center; */
+  /* justify-content: center; */
+  font-size: calc(10px + 2vmin);
+  color: white;
+  padding: 5%;
+
+}
+
+body{
+  background-image: url("https://i.pinimg.com/originals/59/e7/58/59e758cd94b6a989aa2cc7b4eeb68098.jpg");
+}
+
+
+h1 {
+  text-align: center;
+  font-size: 50px;
+}
+
+table {
+  margin: 0 auto;
+  border-spacing: 0px 0px;
+}
+
+.button {
+  background-color: darkblue;
+  color: white;
+  height: 30px;
+  width: 100px;
+  border-radius: 5px;
+  margin: 0 auto;
+  margin-bottom: 25px;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+}
+
+
+.button:hover {
+  background-color: skyblue;
+  color: white;
+
+}
+
+.cell {
+  height: 70px;
+  width: 70px;
+  background-color: #1990ff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+
+/* .message {
+  text-align: center;
+  font-size: 17px;
+} */
+
+.white {
+  height: 60px;
+  width: 60px;
+  background-color: #FFF;
+  border-radius: 100px;
+}
+
+.red {
+  height: 60px;
+  width: 60px;
+  background-color: red;
+  border-radius: 100px;
+}
+
+.black {
+  height: 60px;
+  width: 60px;
+  background-color: black;
+  border-radius: 100px;
+}
+
+.routes{
+  color: skyblue;
+  font-size:150%;
+  text-align: center;
+  /* background-image: url("connect4r.jpg"); */
+  /* width: 50%; */
+}
+
+a{
+  color: red;
+}
+
+input[type=text], select {
+  width: 30%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: large;
+}
+
+.containerflex{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  padding-bottom: 0.5%;
+}
+
